@@ -4,14 +4,8 @@ const divFuvest = document.querySelector('#divFuvest')
 const vest = document.querySelector('#vest')
 const coment = document.querySelector('#coment')
 const bot = document.querySelector('#bot')
-let imagem
-let cEnem = {
-    comp1: {},
-    comp2: {},
-    comp3: {},
-    comp4: {},
-    comp5: {}
-}
+let vestibular = 'ENEM'
+let nota
 
 coment.addEventListener("keydown", ({key}) => {
     if (key === "Enter") {
@@ -21,6 +15,16 @@ coment.addEventListener("keydown", ({key}) => {
 })
 
 bot.onclick = () => {
+    let cEnem = {
+        comp1: document.querySelector('input[name="options11"]:checked').value,
+        comp2: document.querySelector('input[name="options12"]:checked').value,
+        comp3: document.querySelector('input[name="options13"]:checked').value,
+        comp4: document.querySelector('input[name="options14"]:checked').value,
+        comp5: document.querySelector('input[name="options15"]:checked').value
+    }
+    
+    if (!cEnem) alert('ERRO')
+    
     switch (vestibular) {
         case 'ENEM':
 
