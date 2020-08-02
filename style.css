@@ -1,0 +1,49 @@
+#divFuvest,
+#divVunesp {
+    display: none;
+}
+
+body {
+    background-color: rgb(45, 49, 66);
+}
+
+section {
+    width: 800px;
+    background-color: rgb(79, 93, 117);
+    padding: 20px;
+    margin: auto;
+    box-shadow: 8px 8px 1px rgb(191, 192, 192);
+}
+
+p {
+    font: normal 25px Gidole;
+    color: white;
+}
+
+form {
+    font: normal 30px Gidole;
+    color: white;
+    background-color: rgb(239, 131, 84);
+    width: 360px;
+    text-align: center;
+}
+
+
+h1 {
+    font: normal 50px Kollektif;
+    color: white;
+    text-align: center;
+    text-shadow: 3px 3px 1px rgb(239, 131, 84);
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    font: normal 32px Kollektif;
+    color: white;
+}
+
+strong {
+    color: rgb(239, 131, 84);
+    font: bolder 27px Gidole;
+}

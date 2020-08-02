@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Gerador de foto para correção de redação</h1>
+    <section>
+        <div class='custom-select'>
+            <form>
+            <label for="vest">Escolha um vestibular:</label>
+            <select name="vest" id="vest">
+                <option value="ENEM">ENEM</option>
+                <option value="VUNESP">VUNESP</option>
+                <option value="FUVEST">FUVEST</option>
+            </select>
+        </form>
+        </div>
+        <div id='divEnem' class="divEnem">
+            <p> <strong>Competência I:</strong> Domínio da norma padrão <br>
+                <input type="radio" name="options11" id="11"> 0
+                <input type="radio" name="options11" id="12"> 40
+                <input type="radio" name="options11" id="13"> 80
+                <input type="radio" name="options11" id="14"> 120
+                <input type="radio" name="options11" id="15"> 160
+                <input type="radio" name="options11" id="16"> 200
+            </p>
+            <p> <strong>Competência II:</strong> Compreensão da proposta e aplicação de conceitos <br>
+                <input type="radio" name="options12" id="21"> 0
+                <input type="radio" name="options12" id="22"> 40
+                <input type="radio" name="options12" id="23"> 80
+                <input type="radio" name="options12" id="24"> 120
+                <input type="radio" name="options12" id="25"> 160
+                <input type="radio" name="options12" id="26"> 200
+            </p>
+            <p> <strong>Competência III:</strong> Interpretar argumentos em defesa de um ponto de vista <br>
+                <input type="radio" name="options13" id="31"> 0
+                <input type="radio" name="options13" id="32"> 40
+                <input type="radio" name="options13" id="33"> 80
+                <input type="radio" name="options13" id="34"> 120
+                <input type="radio" name="options13" id="35"> 160
+                <input type="radio" name="options13" id="36"> 200
+            </p>
+            <p> <strong>Competência IV:</strong> Conhecimento dos mecanismos linguísticos <br>
+                <input type="radio" name="options14" id="41"> 0
+                <input type="radio" name="options14" id="42"> 40
+                <input type="radio" name="options14" id="43"> 80
+                <input type="radio" name="options14" id="44"> 120
+                <input type="radio" name="options14" id="45"> 160
+                <input type="radio" name="options14" id="46"> 200
+            </p>
+            <p> <strong>Competência V:</strong> Proposta de invervenção, respeitando os direitos humanos <br>
+                <input type="radio" name="options15" id="51"> 0
+                <input type="radio" name="options15" id="52"> 40
+                <input type="radio" name="options15" id="53"> 80
+                <input type="radio" name="options15" id="54"> 120
+                <input type="radio" name="options15" id="55"> 160
+                <input type="radio" name="options15" id="56"> 200
+            </p>     
+        </div>
+        <div id="divVunesp" class='divVunesp'>
+            <p> <strong>Conteúdo:</strong> Obdiência à proposta e desenvolvimento <br>
+                <input type="radio" name="options21" id="61"> 1
+                <input type="radio" name="options21" id="62"> 2
+                <input type="radio" name="options21" id="63"> 3
+                <input type="radio" name="options21" id="64"> 4
+            </p>
+            <p> <strong>Estrutura:</strong> Adequação à estrutura do gênero textual pedido <br>
+                <input type="radio" name="options22" id="71"> 1
+                <input type="radio" name="options22" id="72"> 2
+                <input type="radio" name="options22" id="73"> 3
+            </p>
+            <p> <strong>Forma:</strong> Coesão, modalidade e regras da Língua Portuguesa <br>
+                <input type="radio" name="options23" id="81"> 1
+                <input type="radio" name="options23" id="82"> 2
+                <input type="radio" name="options23" id="83"> 3
+            </p>
+        </div>
+        <div id="divFuvest" class='divFuvest'>
+            <p> Desenvolvimento do tema e organização do texto <br>
+                <input type="radio" name="options31" id="91"> 1
+                <input type="radio" name="options31" id="92"> 2
+                <input type="radio" name="options31" id="93"> 3
+                <input type="radio" name="options31" id="94"> 4
+            </p>
+            <p> Coerência dos argumentos e articulação das partes do texto <br>
+                <input type="radio" name="options32" id="101"> 1
+                <input type="radio" name="options32" id="102"> 2
+                <input type="radio" name="options32" id="103"> 3
+            </p>
+            <p> Correção gramatical e adequação vocabular <br>
+                <input type="radio" name="options33" id="111"> 1
+                <input type="radio" name="options33" id="112"> 2
+                <input type="radio" name="options33" id="113"> 3
+            </p>
+        </div>
+
+    </section>
+    <footer> @HeitorTanoue </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
