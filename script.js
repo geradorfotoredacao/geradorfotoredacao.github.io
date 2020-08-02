@@ -4,6 +4,7 @@ const divFuvest = document.querySelector('#divFuvest')
 const vest = document.querySelector('#vest')
 const coment = document.querySelector('#coment')
 const bot = document.querySelector('#bot')
+let imagem
 let cEnem = {
     comp1: {},
     comp2: {},
@@ -19,7 +20,22 @@ coment.addEventListener("keydown", ({key}) => {
     }
 })
 
-bot.onclick = () => {}
+bot.onclick = () => {
+    switch (vestibular) {
+        case 'ENEM':
+
+
+        break
+        case 'VUNESP':
+
+
+        break
+        case 'FUVEST':
+
+
+        break
+    }
+}
 
 function uncheckAll(){ 
     var w = document.getElementsByTagName('input'); 
@@ -35,4 +51,13 @@ vest.addEventListener ('change', (event) => {
     event.target.value != 'ENEM' ? divEnem.style.display = 'none' : divEnem.style.display = 'block'
     event.target.value != 'VUNESP' ? divVunesp.style.display = 'none' : divVunesp.style.display = 'block'
     event.target.value != 'FUVEST' ? divFuvest.style.display = 'none' : divFuvest.style.display = 'block'
+
+    switch (event.target.value) {
+        case 'ENEM': vestibular = 'ENEM'
+        break
+        case 'VUNESP': vestibular = 'VUNESP'
+        break
+        case 'FUVEST': vestibular = 'FUVEST'
+        break
+    }
 })
