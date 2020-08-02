@@ -1,7 +1,25 @@
-let divEnem = document.querySelector('#divEnem')
-let divVunesp = document.querySelector('#divVunesp')
-let divFuvest = document.querySelector('#divFuvest')
-let vest = document.querySelector('#vest')
+const divEnem = document.querySelector('#divEnem')
+const divVunesp = document.querySelector('#divVunesp')
+const divFuvest = document.querySelector('#divFuvest')
+const vest = document.querySelector('#vest')
+const coment = document.querySelector('#coment')
+const bot = document.querySelector('#bot')
+let cEnem = {
+    comp1: {},
+    comp2: {},
+    comp3: {},
+    comp4: {},
+    comp5: {}
+}
+
+coment.addEventListener("keydown", ({key}) => {
+    if (key === "Enter") {
+        event.preventDefault();
+        bot.click()
+    }
+})
+
+bot.onclick = () => {}
 
 function uncheckAll(){ 
     var w = document.getElementsByTagName('input'); 

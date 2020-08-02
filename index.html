@@ -4,14 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redação</title>
+    <title>Foto para correção de redação</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
     <h1>Gerador de foto para correção de redação</h1>
     <section>
-        <div class='custom-select'>
+        <div id='divVest'>
             <form>
             <label for="vest">Escolha um vestibular:</label>
             <select name="vest" id="vest">
@@ -23,86 +24,92 @@
         </div>
         <div id='divEnem' class="divEnem">
             <p> <strong>Competência I:</strong> Domínio da norma padrão <br>
-                <input type="radio" name="options11" id="11"> 0
-                <input type="radio" name="options11" id="12"> 40
-                <input type="radio" name="options11" id="13"> 80
-                <input type="radio" name="options11" id="14"> 120
-                <input type="radio" name="options11" id="15"> 160
-                <input type="radio" name="options11" id="16"> 200
+                <input type="radio" name="options11" id="11"><label for="11"> 0</label>
+                <input type="radio" name="options11" id="12"><label for="12"> 40</label>
+                <input type="radio" name="options11" id="13"><label for="13"> 80</label>
+                <input type="radio" name="options11" id="14"><label for="14"> 120</label>
+                <input type="radio" name="options11" id="15"><label for="15"> 160</label>
+                <input type="radio" name="options11" id="16"><label for="16"> 200</label>
             </p>
             <p> <strong>Competência II:</strong> Compreensão da proposta e aplicação de conceitos <br>
-                <input type="radio" name="options12" id="21"> 0
-                <input type="radio" name="options12" id="22"> 40
-                <input type="radio" name="options12" id="23"> 80
-                <input type="radio" name="options12" id="24"> 120
-                <input type="radio" name="options12" id="25"> 160
-                <input type="radio" name="options12" id="26"> 200
+                <input type="radio" name="options12" id="21"><label for="21"> 0</label>
+                <input type="radio" name="options12" id="22"><label for="22"> 40</label>
+                <input type="radio" name="options12" id="23"><label for="23"> 80</label>
+                <input type="radio" name="options12" id="24"><label for="24"> 120</label>
+                <input type="radio" name="options12" id="25"><label for="25"> 160</label>
+                <input type="radio" name="options12" id="26"><label for="26"> 200</label>
             </p>
             <p> <strong>Competência III:</strong> Interpretar argumentos em defesa de um ponto de vista <br>
-                <input type="radio" name="options13" id="31"> 0
-                <input type="radio" name="options13" id="32"> 40
-                <input type="radio" name="options13" id="33"> 80
-                <input type="radio" name="options13" id="34"> 120
-                <input type="radio" name="options13" id="35"> 160
-                <input type="radio" name="options13" id="36"> 200
+                <input type="radio" name="options13" id="31"><label for="31"> 0</label>
+                <input type="radio" name="options13" id="32"><label for="32"> 40</label>
+                <input type="radio" name="options13" id="33"><label for="33"> 80</label>
+                <input type="radio" name="options13" id="34"><label for="34"> 120</label>
+                <input type="radio" name="options13" id="35"><label for="35"> 160</label>
+                <input type="radio" name="options13" id="36"><label for="36"> 200</label>
             </p>
             <p> <strong>Competência IV:</strong> Conhecimento dos mecanismos linguísticos <br>
-                <input type="radio" name="options14" id="41"> 0
-                <input type="radio" name="options14" id="42"> 40
-                <input type="radio" name="options14" id="43"> 80
-                <input type="radio" name="options14" id="44"> 120
-                <input type="radio" name="options14" id="45"> 160
-                <input type="radio" name="options14" id="46"> 200
+                <input type="radio" name="options14" id="41"><label for="41"> 0</label>
+                <input type="radio" name="options14" id="42"><label for="42"> 40</label>
+                <input type="radio" name="options14" id="43"><label for="43"> 80</label>
+                <input type="radio" name="options14" id="44"><label for="44"> 120</label>
+                <input type="radio" name="options14" id="45"><label for="45"> 160</label>
+                <input type="radio" name="options14" id="46"><label for="46"> 200</label>
             </p>
             <p> <strong>Competência V:</strong> Proposta de invervenção, respeitando os direitos humanos <br>
-                <input type="radio" name="options15" id="51"> 0
-                <input type="radio" name="options15" id="52"> 40
-                <input type="radio" name="options15" id="53"> 80
-                <input type="radio" name="options15" id="54"> 120
-                <input type="radio" name="options15" id="55"> 160
-                <input type="radio" name="options15" id="56"> 200
+                <input type="radio" name="options15" id="51"><label for="51"> 0</label>
+                <input type="radio" name="options15" id="52"><label for="52"> 40</label>
+                <input type="radio" name="options15" id="53"><label for="53"> 80</label>
+                <input type="radio" name="options15" id="54"><label for="54"> 120</label>
+                <input type="radio" name="options15" id="55"><label for="55"> 160</label>
+                <input type="radio" name="options15" id="56"><label for="56"> 200</label>
             </p>     
         </div>
         <div id="divVunesp" class='divVunesp'>
             <p> <strong>Conteúdo:</strong> Obdiência à proposta e desenvolvimento <br>
-                <input type="radio" name="options21" id="61"> 1
-                <input type="radio" name="options21" id="62"> 2
-                <input type="radio" name="options21" id="63"> 3
-                <input type="radio" name="options21" id="64"> 4
+                <input type="radio" name="options21" id="61"><label for="61"> 1</label>
+                <input type="radio" name="options21" id="62"><label for="62"> 2</label>
+                <input type="radio" name="options21" id="63"><label for="63"> 3</label>
+                <input type="radio" name="options21" id="64"><label for="64"> 4</label>
             </p>
             <p> <strong>Estrutura:</strong> Adequação à estrutura do gênero textual pedido <br>
-                <input type="radio" name="options22" id="71"> 1
-                <input type="radio" name="options22" id="72"> 2
-                <input type="radio" name="options22" id="73"> 3
+                <input type="radio" name="options22" id="71"><label for="71"> 1</label>
+                <input type="radio" name="options22" id="72"><label for="72"> 2</label>
+                <input type="radio" name="options22" id="73"><label for="73"> 3</label>
             </p>
             <p> <strong>Forma:</strong> Coesão, modalidade e regras da Língua Portuguesa <br>
-                <input type="radio" name="options23" id="81"> 1
-                <input type="radio" name="options23" id="82"> 2
-                <input type="radio" name="options23" id="83"> 3
+                <input type="radio" name="options23" id="81"><label for="81"> 1</label>
+                <input type="radio" name="options23" id="82"><label for="82"> 2</label>
+                <input type="radio" name="options23" id="83"><label for="83"> 3</label>
             </p>
         </div>
         <div id="divFuvest" class='divFuvest'>
             <p> Desenvolvimento do tema e organização do texto <br>
-                <input type="radio" name="options31" id="91"> 1
-                <input type="radio" name="options31" id="92"> 2
-                <input type="radio" name="options31" id="93"> 3
-                <input type="radio" name="options31" id="94"> 4
+                <input type="radio" name="options31" id="91"><label for="91"> 1</label>
+                <input type="radio" name="options31" id="92"><label for="92"> 2</label>
+                <input type="radio" name="options31" id="93"><label for="93"> 3</label>
+                <input type="radio" name="options31" id="94"><label for="94"> 4</label>
             </p>
             <p> Coerência dos argumentos e articulação das partes do texto <br>
-                <input type="radio" name="options32" id="101"> 1
-                <input type="radio" name="options32" id="102"> 2
-                <input type="radio" name="options32" id="103"> 3
+                <input type="radio" name="options32" id="101"><label for="101"> 1</label>
+                <input type="radio" name="options32" id="102"><label for="102"> 2</label>
+                <input type="radio" name="options32" id="103"><label for="103"> 3</label>
             </p>
             <p> Correção gramatical e adequação vocabular <br>
-                <input type="radio" name="options33" id="111"> 1
-                <input type="radio" name="options33" id="112"> 2
-                <input type="radio" name="options33" id="113"> 3
+                <input type="radio" name="options33" id="111"><label for="111"> 1</label>
+                <input type="radio" name="options33" id="112"><label for="112"> 2</label>
+                <input type="radio" name="options33" id="113"><label for="113"> 3</label>
             </p>
         </div>
-
+        <div id='divComent'>
+            <label for="coment">Insira um comentário: </label>
+            <input type="text" name="coment" id="coment">
+        </div>
+        <div id="divBot">
+            <input type="button" value="Fazer imagem!" id='bot'>
+        </div>
     </section>
+    
     <footer> @HeitorTanoue </footer>
     <script src="script.js"></script>
 </body>
-
 </html>
