@@ -5,7 +5,6 @@ const vest = document.querySelector('#vest')
 const coment = document.querySelector('#coment')
 const bot = document.querySelector('#bot')
 let vestibular = 'ENEM'
-let nota
 
 coment.addEventListener("keydown", ({key}) => {
     if (key === "Enter") {
@@ -14,21 +13,38 @@ coment.addEventListener("keydown", ({key}) => {
     }
 })
 
-bot.onclick = () => {
-    let cEnem = {
-        comp1: document.querySelector('input[name="options11"]:checked').value,
-        comp2: document.querySelector('input[name="options12"]:checked').value,
-        comp3: document.querySelector('input[name="options13"]:checked').value,
-        comp4: document.querySelector('input[name="options14"]:checked').value,
-        comp5: document.querySelector('input[name="options15"]:checked').value
+let convertNumber = (a) => {
+    if (!a) {
+        return null
+    } else {
+        return Number(a.value)
     }
-    
-    if (!cEnem) alert('ERRO')
-    
+}
+
+let somar = (a,b,c,d,e) => {
+    return a + b + c + d + e
+}
+
+bot.onclick = () => {
     switch (vestibular) {
         case 'ENEM':
-
-
+            let cEnem = {
+                comp1: convertNumber(document.querySelector('input[name="options11"]:checked')),
+                comp2: convertNumber(document.querySelector('input[name="options12"]:checked')),
+                comp3: convertNumber(document.querySelector('input[name="options13"]:checked')),
+                comp4: convertNumber(document.querySelector('input[name="options14"]:checked')),
+                comp5: convertNumber(document.querySelector('input[name="options15"]:checked')),
+                nota: {}
+            }
+        
+            cEnem.nota = somar(cEnem.comp1, cEnem.comp2, cEnem.comp3, cEnem.comp4, cEnem.comp5)
+            
+            if (!cEnem.comp1||!cEnem.comp2||!cEnem.comp3||!cEnem.comp4||!cEnem.comp5) {
+                alert('[ERRO] Preencha todas as lacunas!')
+            } else {
+                //continuar código aqui!
+                alert('foi')
+            }
         break
         case 'VUNESP':
 
@@ -38,7 +54,7 @@ bot.onclick = () => {
 
 
         break
-    }
+    } 
 }
 
 function uncheckAll(){ 
