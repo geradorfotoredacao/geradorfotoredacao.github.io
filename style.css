@@ -8,7 +8,7 @@ body {
 }
 
 section {
-    width: 850px;
+    width: 900px;
     background-color: rgb(79, 93, 117);
     padding: 20px;
     margin: auto;
@@ -16,24 +16,31 @@ section {
 }
 
 p {
-    font: normal 25px Gidole;
+    font: normal 25px Maven Pro, sans-serif;
     color: white;
 }
 
 select {
-    width: 100px;
+    width: 140px;
     height: 30px;
-    font: normal 18pt Gidole;
+    font: normal 18pt Maven Pro, sans-serif;
 }
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
 
 #divComent input {
     width: 520px;
     height: 30px;
-    font: normal 17pt Gidole;
+    font: normal 17pt Maven Pro, sans-serif;
 }
 
 #divComent, #divVest {
-    font: normal 30px Gidole;
+    font: normal 30px Maven Pro, sans-serif;
     color: white;
     background-color: rgb(239, 131, 84);
     width: 1;
@@ -81,7 +88,7 @@ input[type='radio']:checked:after {
 
 
 h1 {
-    font-family: Kollektif;
+    font-family: Asap;
     font-size: 55px;
     font-weight: bold ;
     color: white;
@@ -92,13 +99,13 @@ h1 {
 footer {
     padding: 30px;
     text-align: center;
-    font: normal 32px Kollektif;
+    font: normal 32px Asap;
     color: white;
 }
 
 strong {
     color: rgb(239, 131, 84);
-    font: bolder 27px Gidole;
+    font: bolder 27px Maven Pro, sans-serif;
 }
 
 #divBot {
@@ -111,7 +118,7 @@ strong {
     height: 65px;
     text-align: center;
     background-color: rgb(239, 131, 84);
-    font: normal 22pt Kollektif;
+    font: normal 22pt Asap;
     color: whitesmoke;
     border-style: outset;
     border-color: rgb(245, 173, 146);

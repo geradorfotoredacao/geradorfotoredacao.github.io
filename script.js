@@ -25,7 +25,33 @@ let somar = (a,b,c,d,e) => {
     return a + b + c + d + e
 }
 
+let fazerImagem = (imagem, mensagem) => {
+    var fileName = imagem;
+    var imageCaption = mensagem;
+    var loadedImage;
+    Jimp.read(fileName)
+    .then(function (image) {
+        loadedImage = image;
+        return Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
+    })
+    .then(function (font) {
+        loadedImage.print(font, 10, 10, imageCaption)
+        loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
+                    var img = document.createElement("img");
+                    img.setAttribute("src", src);
+                    document.body.appendChild(img);
+                });
+    })
+    .catch(function (err) {
+        console.error(err);
+    });
+}
+
 bot.onclick = () => {
+    let imagem = document.querySelector('img')
+    if (imagem) {
+        imagem.remove()
+    } 
     switch (vestibular) {
         case 'ENEM':
             let cEnem = {
@@ -42,8 +68,7 @@ bot.onclick = () => {
             if (!cEnem.comp1||!cEnem.comp2||!cEnem.comp3||!cEnem.comp4||!cEnem.comp5) {
                 alert('[ERRO] Preencha todas as lacunas!')
             } else {
-                //continuar código aqui!
-                alert('foi')
+                fazerImagem('enem.png', 'alo teste')
             }
         break
         case 'VUNESP':
