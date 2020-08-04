@@ -30,19 +30,33 @@ let somar = (a, b, c, d, e) => {
 
 let funCol = (a) => {
     switch (a) {
-        case 0: return 0;
-        case 40: return 1;
-        case 80: return 2;
-        case 120: return 3;
-        case 160: return 4;
-        case 200: return 5;
+        case 0:
+            return 0;
+        case 40:
+            return 1;
+        case 80:
+            return 2;
+        case 120:
+            return 3;
+        case 160:
+            return 4;
+        case 200:
+            return 5;
+        case 1:
+            return 0;
+        case 2:
+            return 1;
+        case 3:
+            return 2;
+        case 4:
+            return 3;
     }
 }
 
 let cortarComment = (string, n) => {
     if (string.length < lenghtComent && n == 0) {
         return string
-    } else if (string.length < lenghtComent && n == 1){
+    } else if (string.length < lenghtComent && n == 1) {
         return ''
     } else {
         let spa = string.indexOf(' ', lenghtComent)
@@ -50,21 +64,64 @@ let cortarComment = (string, n) => {
         coments[0] = string.slice(0, spa)
         coments[1] = string.slice(spa)
         return coments[`${n}`]
-    }    
+    }
 }
 
 let fazerImagem = (mensagem, nota, c1, c2, c3, c4, c5) => {
-    let colunasEnem = [36, 92, 160, 228, 297]
-    let linhasEnem = [1022, 1086, 1150, 1212, 1273, 1337]
-    let comentCoordsEnem = {
-        x: 25,
-        y: 445
+
+    let varVest = (a, ret) => {
+        if (vestibular == 'ENEM') {
+            switch (ret) {
+                case 'colunas':
+                    return colunasEnem[a]
+                case 'linhas':
+                    return linhasEnem[a]
+                case 'comentCoords':
+                    return comentCoordsEnem[a]
+                case 'notaCoords':
+                    return notaCoordsEnem[a]
+            }
+        } else if (vestibular == 'VUNESP') {
+            switch (ret) {
+                case 'colunas':
+                    return colunasVunesp[a]
+                case 'linhas':
+                    return linhasVunesp[a]
+                case 'comentCoords':
+                    return comentCoordsVunesp[a]
+                case 'notaCoords':
+                    return notaCoordsVunesp[a]
+            }
+        } else if (vestibular == 'FUVEST') {
+            switch (ret) {
+                case 'colunas':
+                    return colunasFuvest[a]
+                case 'linhas':
+                    return linhasFuvest[a]
+                case 'comentCoords':
+                    return comentCoordsFuvest[a]
+                case 'notaCoords':
+                    return notaCoordsFuvest[a]
+            }
+        }
     }
-    let notaCoordsEnem = {
-        x: 1220,
-        y: 435
-    }
-    var fileName = 'enem2.png'
+
+    const colunasEnem = [36, 92, 160, 228, 297]
+    const linhasEnem = [1022, 1086, 1150, 1212, 1273, 1337]
+    const comentCoordsEnem = [25, 445]
+    const notaCoordsEnem = [1220, 435]
+
+    const colunasFuvest = []
+    const linhasFuvest = []
+    const comentCoordsFuvest = []
+    const notaCoordsFuvest = []
+
+    const colunasVunesp = [15, 65, 123]
+    const linhasVunesp = [1026, 1090, 1150, 1215]
+    const comentCoordsVunesp = [25, 225]
+    const notaCoordsVunesp = [1320, 100]
+
+    var fileName = vestibular + '.png'
     var imageCaption = mensagem;
     var loadedImage;
     Jimp.read(fileName)
@@ -73,29 +130,32 @@ let fazerImagem = (mensagem, nota, c1, c2, c3, c4, c5) => {
             return Jimp.loadFont(Jimp.FONT_SANS_64_BLACK);
         })
         .then(function (font) {
-            loadedImage.print(font, linhasEnem[`${c1}`], colunasEnem[0], 'X') //comp1
-            loadedImage.print(font, linhasEnem[`${c2}`], colunasEnem[1], 'X') //comp2
-            loadedImage.print(font, linhasEnem[`${c3}`], colunasEnem[2], 'X') //comp3
-            loadedImage.print(font, linhasEnem[`${c4}`], colunasEnem[3], 'X') //comp4
-            loadedImage.print(font, linhasEnem[`${c5}`], colunasEnem[4], 'X') //comp5
-            loadedImage.print(font, notaCoordsEnem.x, notaCoordsEnem.y, nota) //nota
+            loadedImage.print(font, varVest(c1, 'linhas'), varVest(0, 'colunas'), 'X') //comp1
+            loadedImage.print(font, varVest(c2, 'linhas'), varVest(1, 'colunas'), 'X') //comp2
+            loadedImage.print(font, varVest(c3, 'linhas'), varVest(2, 'colunas'), 'X') //comp3
+            if (vestibular=='ENEM') loadedImage.print(font, varVest(c4, 'linhas'), varVest(3, 'colunas'), 'X') //comp4
+            if (vestibular=='ENEM') loadedImage.print(font, varVest(c5, 'linhas'), varVest(4, 'colunas'), 'X') //comp5
+            
+            loadedImage.print(font, varVest(0, 'notaCoords'), varVest(1, 'notaCoords'), nota) //nota
             return Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
         })
         .then(function (font) {
             if (coment.value.length < lenghtComent) {
-                loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y, imageCaption) //comentario
+                loadedImage.print(font, varVest(0, 'comentCoords'), varVest(1, 'comentCoords'), imageCaption) //comentario
                 loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
                     var img = document.createElement("img");
                     img.setAttribute("src", src);
                     document.body.appendChild(img);
+                    coment.value = ''
                 });
             } else {
-                loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y, cortarComment(coment.value, 0) ) //comentario
-                loadedImage.print(font, comentCoordsEnem.x-9, comentCoordsEnem.y+30, cortarComment(coment.value, 1) ) //comentario
+                loadedImage.print(font, varVest(0, 'comentCoords'), varVest(1, 'comentCoords'), cortarComment(coment.value, 0)) //comentario
+                loadedImage.print(font, varVest(0, 'comentCoords') - 9, varVest(1, 'comentCoords') + 30, cortarComment(coment.value, 1)) //comentario
                 loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
                     var img = document.createElement("img");
                     img.setAttribute("src", src);
                     document.body.appendChild(img);
+                    coment.value = ''
                 });
             }
 
@@ -127,15 +187,47 @@ bot.onclick = () => {
                 alert('[ERRO] Preencha todas as lacunas!')
                 console.log(cEnem)
             } else {
-               fazerImagem(coment.value, cEnem.nota, funCol(cEnem.comp1), funCol(cEnem.comp2),funCol(cEnem.comp3),funCol(cEnem.comp4),funCol(cEnem.comp5))
+                fazerImagem(coment.value, cEnem.nota, funCol(cEnem.comp1), funCol(cEnem.comp2), funCol(cEnem.comp3), funCol(cEnem.comp4), funCol(cEnem.comp5))
             }
             break
         case 'VUNESP':
-            alert('Função ainda não implementada! Volte daqui um tempo!')
+            let cVunesp = {
+                comp1: convertNumber(document.querySelector('input[name="options21"]:checked')),
+                comp2: convertNumber(document.querySelector('input[name="options22"]:checked')),
+                comp3: convertNumber(document.querySelector('input[name="options23"]:checked')),
+                nota: {}
+            }
+
+            cVunesp.nota = somar(cVunesp.comp1, cVunesp.comp2, cVunesp.comp3,0,0)
+
+            if (cVunesp.comp1 == null || cVunesp.comp2 == null || cVunesp.comp3 == null) {
+                alert('[ERRO] Preencha todas as lacunas!')
+                console.log(cVunesp)
+            } else {
+                console.log(cVunesp)
+                fazerImagem(coment.value, cVunesp.nota, funCol(cVunesp.comp1), funCol(cVunesp.comp2), funCol(cVunesp.comp3))
+            }
             break
         case 'FUVEST':
-            alert('Função ainda não implementada! Volte daqui um tempo!')
+            let cFuvest = {
+                comp1: convertNumber(document.querySelector('input[name="options31"]:checked')),
+                comp2: convertNumber(document.querySelector('input[name="options32"]:checked')),
+                comp3: convertNumber(document.querySelector('input[name="options33"]:checked')),
+                nota: {}
+            }
+
+            cFuvest.nota = somar(cFuvest.comp1, cFuvest.comp2, cFuvest.comp3,0,0)
+
+            if (cFuvest.comp1 == null || cFuvest.comp2 == null || cFuvest.comp3 == null) {
+                alert('[ERRO] Preencha todas as lacunas!')
+                console.log(cFuvest)
+            } else {
+                console.log(cFuvest)
+                fazerImagem(coment.value, cFuvest.nota, funCol(cFuvest.comp1), funCol(cFuvest.comp2), funCol(cFuvest.comp3))
+            }
+
             break
+
     }
 }
 
