@@ -90,7 +90,7 @@ let fazerImagem = (mensagem, nota, c1, c2, c3, c4, c5) => {
                 });
             } else {
                 loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y, cortarComment(coment.value, 0) ) //comentario
-                loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y+30, cortarComment(coment.value, 1) ) //comentario
+                loadedImage.print(font, comentCoordsEnem.x-9, comentCoordsEnem.y+30, cortarComment(coment.value, 1) ) //comentario
                 loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
                     var img = document.createElement("img");
                     img.setAttribute("src", src);
