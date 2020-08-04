@@ -5,6 +5,7 @@ const vest = document.querySelector('#vest')
 const coment = document.querySelector('#coment')
 const bot = document.querySelector('#bot')
 let vestibular = 'ENEM'
+let lenghtComent = 55
 
 coment.addEventListener("keydown", ({
     key
@@ -38,18 +39,31 @@ let funCol = (a) => {
     }
 }
 
-let fazerImagemEnem = (mensagem, nota, c1, c2, c3, c4, c5) => {
+let cortarComment = (string, n) => {
+    let len = Math.floor(string.length/2)
+    if (len < lenghtComent) {
+        return string
+    } else {
+        let spa = string.indexOf(' ', len - 5)
+        let coments = []
+        coments[0] = string.slice(0, spa)
+        coments[1] = string.slice(spa)
+        return coments[`${n}`]
+    }    
+}
+
+let fazerImagem = (mensagem, nota, c1, c2, c3, c4, c5) => {
     let colunasEnem = [36, 92, 160, 228, 297]
     let linhasEnem = [1022, 1086, 1150, 1212, 1273, 1337]
-    let comentCoords = {
-        x: 42,
-        y: 425
+    let comentCoordsEnem = {
+        x: 25,
+        y: 445
     }
-    let notaCoords = {
+    let notaCoordsEnem = {
         x: 1220,
-        y: 420
+        y: 435
     }
-    var fileName = 'enem.png'
+    var fileName = 'enem2.png'
     var imageCaption = mensagem;
     var loadedImage;
     Jimp.read(fileName)
@@ -63,13 +77,27 @@ let fazerImagemEnem = (mensagem, nota, c1, c2, c3, c4, c5) => {
             loadedImage.print(font, linhasEnem[`${c3}`], colunasEnem[2], 'X') //comp3
             loadedImage.print(font, linhasEnem[`${c4}`], colunasEnem[3], 'X') //comp4
             loadedImage.print(font, linhasEnem[`${c5}`], colunasEnem[4], 'X') //comp5
-            loadedImage.print(font, comentCoords.x, comentCoords.y, imageCaption) //comentario
-            loadedImage.print(font, notaCoords.x, notaCoords.y, nota) //comentario
-            loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
-                var img = document.createElement("img");
-                img.setAttribute("src", src);
-                document.body.appendChild(img);
-            });
+            loadedImage.print(font, notaCoordsEnem.x, notaCoordsEnem.y, nota) //nota
+            return Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
+        })
+        .then(function (font) {
+            if (coment.value.length < lenghtComent) {
+                loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y, imageCaption) //comentario
+                loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
+                    var img = document.createElement("img");
+                    img.setAttribute("src", src);
+                    document.body.appendChild(img);
+                });
+            } else {
+                loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y, cortarComment(coment.value, 0) ) //comentario
+                loadedImage.print(font, comentCoordsEnem.x, comentCoordsEnem.y+30, cortarComment(coment.value, 1) ) //comentario
+                loadedImage.getBase64(Jimp.MIME_JPEG, function (err, src) {
+                    var img = document.createElement("img");
+                    img.setAttribute("src", src);
+                    document.body.appendChild(img);
+                });
+            }
+
         })
         .catch(function (err) {
             console.error(err);
@@ -98,7 +126,7 @@ bot.onclick = () => {
                 alert('[ERRO] Preencha todas as lacunas!')
                 console.log(cEnem)
             } else {
-               fazerImagemEnem(coment.value, cEnem.nota, funCol(cEnem.comp1), funCol(cEnem.comp2),funCol(cEnem.comp3),funCol(cEnem.comp4),funCol(cEnem.comp5))
+               fazerImagem(coment.value, cEnem.nota, funCol(cEnem.comp1), funCol(cEnem.comp2),funCol(cEnem.comp3),funCol(cEnem.comp4),funCol(cEnem.comp5))
             }
             break
         case 'VUNESP':
