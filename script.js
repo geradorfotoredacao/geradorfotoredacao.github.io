@@ -40,11 +40,12 @@ let funCol = (a) => {
 }
 
 let cortarComment = (string, n) => {
-    let len = Math.floor(string.length/2)
-    if (len < lenghtComent) {
+    if (string.length < lenghtComent && n == 0) {
         return string
+    } else if (string.length < lenghtComent && n == 1){
+        return ''
     } else {
-        let spa = string.indexOf(' ', len - 5)
+        let spa = string.indexOf(' ', lenghtComent)
         let coments = []
         coments[0] = string.slice(0, spa)
         coments[1] = string.slice(spa)
@@ -130,12 +131,10 @@ bot.onclick = () => {
             }
             break
         case 'VUNESP':
-
-
+            alert('Função ainda não implementada! Volte daqui um tempo!')
             break
         case 'FUVEST':
-
-
+            alert('Função ainda não implementada! Volte daqui um tempo!')
             break
     }
 }
