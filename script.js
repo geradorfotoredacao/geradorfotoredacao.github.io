@@ -111,10 +111,10 @@ let fazerImagem = (mensagem, nota, c1, c2, c3, c4, c5) => {
     const comentCoordsEnem = [25, 445]
     const notaCoordsEnem = [1220, 435]
 
-    const colunasFuvest = []
-    const linhasFuvest = []
-    const comentCoordsFuvest = []
-    const notaCoordsFuvest = []
+    const colunasFuvest = [15, 65, 123]
+    const linhasFuvest = [1026, 1090, 1150, 1215]
+    const comentCoordsFuvest = [25, 225]
+    const notaCoordsFuvest = [1320, 100]
 
     const colunasVunesp = [15, 65, 123]
     const linhasVunesp = [1026, 1090, 1150, 1215]
@@ -246,15 +246,23 @@ vest.addEventListener('change', (event) => {
     event.target.value != 'VUNESP' ? divVunesp.style.display = 'none' : divVunesp.style.display = 'block'
     event.target.value != 'FUVEST' ? divFuvest.style.display = 'none' : divFuvest.style.display = 'block'
 
+    coment.setAttribute('maxlength', lenghtComent)
+
     switch (event.target.value) {
         case 'ENEM':
             vestibular = 'ENEM'
+            lenghtComent = 55
+            coment.setAttribute('maxlength', `${lenghtComent*2}`)
             break
         case 'VUNESP':
             vestibular = 'VUNESP'
+            lenghtComent = 74
+            coment.setAttribute('maxlength', `${lenghtComent*2}`)
             break
         case 'FUVEST':
             vestibular = 'FUVEST'
+            lenghtComent = 74
+            coment.setAttribute('maxlength', `${lenghtComent*2}`)
             break
     }
 })
