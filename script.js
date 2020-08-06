@@ -137,6 +137,7 @@ let fazerImagem = (mensagem, nota, c1, c2, c3, c4, c5) => {
             if (vestibular=='ENEM') loadedImage.print(font, varVest(c5, 'linhas'), varVest(4, 'colunas'), 'X') //comp5
             
             loadedImage.print(font, varVest(0, 'notaCoords'), varVest(1, 'notaCoords'), nota) //nota
+            loadedImage.quality(10)
             return Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
         })
         .then(function (font) {
