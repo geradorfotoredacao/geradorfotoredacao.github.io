@@ -186,7 +186,6 @@ bot.onclick = () => {
 
             if (cEnem.comp1 == null || cEnem.comp2 == null || cEnem.comp3 == null || cEnem.comp4 == null || cEnem.comp5 == null) {
                 alert('[ERRO] Preencha todas as lacunas!')
-                console.log(cEnem)
             } else {
                 fazerImagem(coment.value, cEnem.nota, funCol(cEnem.comp1), funCol(cEnem.comp2), funCol(cEnem.comp3), funCol(cEnem.comp4), funCol(cEnem.comp5))
             }
@@ -203,9 +202,7 @@ bot.onclick = () => {
 
             if (cVunesp.comp1 == null || cVunesp.comp2 == null || cVunesp.comp3 == null) {
                 alert('[ERRO] Preencha todas as lacunas!')
-                console.log(cVunesp)
             } else {
-                console.log(cVunesp)
                 fazerImagem(coment.value, cVunesp.nota, funCol(cVunesp.comp1), funCol(cVunesp.comp2), funCol(cVunesp.comp3))
             }
             break
@@ -221,9 +218,7 @@ bot.onclick = () => {
 
             if (cFuvest.comp1 == null || cFuvest.comp2 == null || cFuvest.comp3 == null) {
                 alert('[ERRO] Preencha todas as lacunas!')
-                console.log(cFuvest)
             } else {
-                console.log(cFuvest)
                 fazerImagem(coment.value, cFuvest.nota, funCol(cFuvest.comp1), funCol(cFuvest.comp2), funCol(cFuvest.comp3))
             }
 
